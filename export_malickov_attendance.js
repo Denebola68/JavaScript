@@ -1,4 +1,4 @@
-let rows = document.querySelectorAll("table.daysTable tr");
+const rows = document.querySelectorAll("table.daysTable tr");
 let events = "";
 
 const formatICSDate = (dateStr, timeStr) => {
@@ -9,16 +9,16 @@ const formatICSDate = (dateStr, timeStr) => {
 };
 
 rows.forEach(row => {
-    let date = row.querySelector("input[name='datumDne']")?.value;
+    const date = row.querySelector("input[name='datumDne']")?.value;
     
     // ZMENAORITY: Najprv hľadáme plánované časy, ak nie sú, skúsime reálne
-    let planArrival = row.querySelector("input[name='planArrival']")?.value;
-    let planLeaving = row.querySelector("input[name='planLeaving']")?.value;
-    let arrival = row.querySelector("input[name='arrival']")?.value;
-    let leaving = row.querySelector("input[name='leaving']")?.value;
+    const planArrival = row.querySelector("input[name='planArrival']")?.value;
+    const planLeaving = row.querySelector("input[name='planLeaving']")?.value;
+    const arrival = row.querySelector("input[name='arrival']")?.value;
+    const leaving = row.querySelector("input[name='leaving']")?.value;
 
-    let startStr = planArrival || arrival;
-    let endStr = planLeaving || leaving;
+    const startStr = planArrival || arrival;
+    const endStr = planLeaving || leaving;
 
     if (date && startStr && endStr) {
         const dtStart = formatICSDate(date, startStr);
